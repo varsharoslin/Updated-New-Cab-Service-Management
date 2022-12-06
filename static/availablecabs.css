@@ -1,0 +1,12 @@
+body{
+    padding: 1rem 0rem;
+   max-width: 250%;
+   position: absolute;
+  }
+  .image-parent {
+    max-width: 30%;
+    
+  }
+  .list-group {
+    width: 350%;
+  }

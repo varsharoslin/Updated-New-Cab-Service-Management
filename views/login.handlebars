@@ -1,0 +1,34 @@
+<body style="background-color:rgba(255, 191, 0, 0.816);"></body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+            <h1 class="text-center">Login</h1>
+            <form method="post">
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="someone@example.com">
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control">
+                </div>
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    {{#if message}}
+                        <p class="text-danger">{{message}}</p>
+                    {{/if}}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<style>
+   body{ width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+</style>

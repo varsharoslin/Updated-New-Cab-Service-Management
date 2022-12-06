@@ -1,0 +1,17 @@
+const express = require('express');
+const controller = require('../controller/customerProfileController')
+
+const router = express.Router();
+
+
+
+router.get('/customercreate', controller.create);
+router.post('/customercreate', controller.createPost);
+router.get('/customerprofile', controller.index);
+router.get('/customerupdate/:id', controller.update);
+router.post('/customerupdate/:id', controller.updatePost);
+
+router.get('/customerdelete/:id', controller.delete);
+router.get('/register', controller.index);
+
+module.exports = router;

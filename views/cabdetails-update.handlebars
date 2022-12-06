@@ -1,0 +1,30 @@
+<body style="background-color:rgba(255, 191, 0, 0.816);"></body>
+<div class="container">
+    <h1 class="text-center">Update Cab Details</h1>
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+            <form method="post">
+                <div>
+                    <label for="cabName">Cab Name</label>
+                    <input type="text" name="cabName" id="cabName" class="form-control" value="{{data.dataValues.cabName}}">
+                </div>
+                <div>
+                    <label for="cabType">Cab Type</label>
+                    <input type="text" name="cabType" id="cabType" class="form-control" value="{{data.dataValues.cabType}}">
+                </div>
+                <div>
+                    <label for="cabCapacity">Cab Capacity</label>
+                    <input type="text" name="cabCapacity" id="cabCapacity" class="form-control" value="{{data.dataValues.cabCapacity}}">
+                </div>
+                <div>
+                    <label for="cabDescription">Cab Description</label>
+                    <textarea name="cabDescription" id="cabDescription" class="form-control">{{data.dataValues.cabDescription}}
+                    </textarea>
+                </div>
+                <div class="d-grid mt-4">
+                    <button class="btn btn-primary" type="submit">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+const express = require('express');
+const controller = require('../controller/cabdetailsController');
+const router = express.Router();
+router.get('/login', controller.login);
+router.post('/login', controller.loginPost);
+// router.get('/register', controller.register);
+// router.post('/register', controller.registerPost);
+router.get('/home',controller.homeget);
+router.get('/homepage',controller.homepageget);
+router.post('/booking',controller.cabbookingpost);
+router.get('/booking',controller.cabbookingget);
+router.get('/register',controller.registerget);
+router.get('/localhost/login',controller.loginget);
+router.get('/cabdetails',controller.cabdetailsget);
+router.get('/availablecabs',controller.availablecabsget);
+router.get('/payment',controller.paymentget);
+router.get('/bookedsucessfully',controller.bookedsucessfullyget);
+router.get('/driver',controller.driverget);
+router.get('/driverlogin',controller.driverloginget);
+router.get('/customer',controller.customerget);
+router.get('/customerlogin',controller.customerloginget);
+router.get('passengerprofile',controller.passengerprofileget);
+router.get('driverprofile',controller.driverprofileget);
+router.get('/register',controller.registerget);
+router.post('/register',controller.registerpost);
+// router.get('/driverassign',controller.driverassignget);
+
+module.exports = router;

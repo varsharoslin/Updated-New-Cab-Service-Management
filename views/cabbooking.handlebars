@@ -1,0 +1,209 @@
+<html>
+
+<head>
+    <title>
+    </title>
+</head>
+
+<body style="background-color:rgba(255, 191, 0, 0.816);"></body>
+<center>
+    <h1 style="color:white">CAB SERVICE MANAGEMENT</h1>
+</center>
+<a href="/employee/create">click here to go back</a><br>
+<center>
+    <b>Booking Form</b>
+    <form method="POST">
+
+
+        <table cellspacing="6" cellpading="2" <tr>
+            <td>
+
+
+            </td>
+            <tr>
+
+
+
+            <tr>
+                <td>
+                    <label for="FirstName"><b>First Name:</b></label>
+                </td>
+                <td><input type="text" id="firstName" name="firstName" placeholder="Your First Name" /><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="LastName"><b>Last Name:</b></label>
+                </td>
+                <td><input type="text" id="lastName" name="lastName" placeholder="Your Last Name" />
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <td>
+                    <label for="Address"><b>Address:</b></label>
+                </td>
+                <td><textarea id="address" name="address" placeholder="Your First Name" rows="6" cols="21"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="Pick-Up Location"><b>Pick-Up Location</b></label>
+                </td>
+                <td><input type="text" id="pickup" name="pickup" placeholder="Your Pick-Up Location" />
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="Drop-Off Location"><b>Drop-Off Location</b></label>
+                </td>
+                <td><input type="text" id="dropoff" name="dropoff" placeholder="Your Drop-Off Location" />
+
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <td>
+                    <label for="passengers"><b>Number Of passengers:</b></label>
+                </td>
+                <td><input type="number" id="passengers" name="passengers" placeholder="Number of Passengers" />
+
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <td>
+                    <label for="time"><b>Pick-Up Time:</b></label>
+                </td>
+                <td><input type="number" id="pickuptime" name="pickuptime" placeholder="Your time" />
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="email"><b>Email:</b></label>
+                </td>
+                <td><input type="email" id="email" name="email" placeholder="Your email" />
+
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    <label for="Phone Number:"><b>Phone Number:</b></label>
+                </td>
+                <td><input type="number" id="phone" name="phone" placeholder="Your Phone Number" /><br>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="bookingdate:"><b>Booking Date:</b></label>
+                </td>
+                <td><input type="date" id="bookingdate" name="bookingdate" placeholder="Your Booking Date" /><br>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td>
+                    <label for="choosecab"><b>Choose Your Cab</b></label>
+                </td>
+                <td><select class="selectpicker" name="choosecab" data-live-search="true">
+                        <option data-tokens="ketchup mustard"value="Maruthi Swift Dzire A/C">Maruthi Swift Dzire A/C,<br><b>Rate (INR) Per Day :
+                                1700/-</b></option>
+                        <option data-tokens="mustard" value="Toyota Etios A/C">Toyota Etios A/C<br>Rate (INR) Per Day : 1800/-</option>
+                        <option data-tokens="frosting" value="Maruti Suzuki Ertiga A/C">Maruti Suzuki Ertiga A/C<br>Rate (INR) Per Day : 2000/-
+                        </option>
+                        <option data-tokens="frosting" value="Chevrolet Enjoy A/C">Chevrolet Enjoy A/C<br>Rate (INR) Per Day : 1500/-</option>
+                        <option data-tokens="frosting"value="Toyota Innova A/C">Toyota Innova A/C<br>Rate (INR) Per Day : 1750/-</option>
+                    </select></td>
+
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    <label for="Can we contact you?"><b>Can We Contact You?:</b></label>
+                </td>
+                <td><input type="radio" id="yes" name="contact" value="1" />Yes
+                    <input type="radio" id="no" name="contact" value="2" />No
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="Communication Preference"><b>Communication Preference:</b></label>
+                </td>
+                <td><input type="checkbox" id="terms" name="Communication preference" value="1" />Email
+                    <input type="checkbox" id="terms" name="Communication preference" value="2" />SMS
+                </td>
+            </tr><br>
+            <tr>
+                <td>
+                    <input type="checkbox" id="terms" name="terms" />I agree to the <span style="color:blue;">terms
+                        and conditions</span> of the website
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="SUBMIT" onclick="saveData();" id="SUBMIT" name="SUBMIT" value="Save"
+                        style="background-color:blue;color:white;" />
+
+                    <input type="reset" id="RESET" value="RESET" style="background-color:blue;color:white;" />
+                </td>
+
+            </tr>
+
+        </table>
+        <a class="btn btn-primary" href="/payment" role="button">Submit</a>
+    </form>
+</center>
+
+<!-- Booking Form End -->
+<script>
+    function saveData() {
+        debugger
+        var FirstName = document.getElementById('FirstName').value;
+        var LastName = document.getElementById('LastName').value;
+        var Address = document.getElementById('Address').value;
+        alert('First Name' + FirstName);
+        var formData = {
+            FirstName,
+            LastName,
+            Address
+
+        }
+        //
+
+        localStorage.setItem('formData', JSON.stringify(formData));
+
+    }
+</script>
+
+</body>
+
+</html>
+<style>
+    body {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+
+    }
+</style>

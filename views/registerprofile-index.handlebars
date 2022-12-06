@@ -1,0 +1,45 @@
+<body style="background-color:rgba(255, 191, 0, 0.816);"></body>
+<h1 class="text-center">Registeration Details</h1>
+<div class="container">
+    {{!-- <a href="/create" class="btn btn-primary">+ New </a> --}}
+    <table class="table table-striped mt-4">
+        <tr>
+            <th>id</th>
+            <th>firstName</th>
+            <th>lastName</th>
+            <th>role</th>
+            <th>email</th>
+            <th>address</th>
+            <th>number</th>
+            <th>Action</th>
+        </tr>
+        {{#each data}}
+        <tr>
+            <td>{{this.dataValues.id}}</td>
+            <td>{{this.dataValues.firstName}}</td>
+            <td>{{this.dataValues.lastName}}</td>
+            <td>{{this.dataValues.role}}</td>
+            <td>{{this.dataValues.email}}</td>
+            <td>{{this.dataValues.address}}</td>
+            <td>{{this.dataValues.number}}</td>
+            <td>
+                <a href="/updateprofile/{{this.dataValues.id}}">Edit</a> |
+                <a href="/deleteprofile/{{this.dataValues.id}}" class="text-danger" onclick="return confirm('Are you sure you want to delete this')">Delete</a>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+    <p class="text-end">You are logged in as: 
+        <b>{{identity.firstName}} {{identity.lastName}}</b>
+    </p>
+</div>
+<style>
+   body{ width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+</style>

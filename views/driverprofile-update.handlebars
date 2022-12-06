@@ -1,0 +1,38 @@
+<body style="background-color:rgba(255, 191, 0, 0.816);"></body>
+<div class="container">
+    <h1 class="text-center">Update Profile Details</h1>
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+            <form method="post">
+                <div>
+                    <label for="firstname">First Name</label>
+                    <input type="text" name="firstName" id="name" class="form-control" value="{{data.dataValues.firstName}}">
+                </div>
+                <div>
+                    <label for="lastname">Last Name</label>
+                    <input type="text" name="lastName" id="name" class="form-control" value="{{data.dataValues.lastName}}">
+                </div>
+                <div>
+                    <label for="gender">Gender</label>
+                    <input type="text" name="gender" id="gender" class="form-control" value="{{data.dataValues.gender}}">
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <textarea name="email" id="email" class="form-control">{{data.dataValues.email}}
+                    </textarea>
+                </div>
+                <div>
+                    <label for="address">Address</label>
+                    <input type="text" name="address" id="address" class="form-control" value="{{data.dataValues.address}}">
+                </div>
+                <div>
+                    <label for="license">License Number</label>
+                    <input type="number" name="license" id="license" class="form-control" value="{{data.dataValues.license}}">
+                </div>
+                <div class="d-grid mt-4">
+                    <button class="btn btn-primary" type="submit">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
