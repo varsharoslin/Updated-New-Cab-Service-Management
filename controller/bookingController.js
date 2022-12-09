@@ -1,5 +1,6 @@
-const bookings = require('../model/cabbooking');
-
+const { Driverprofile } = require('../model/cab');
+const bookings = require('../model/cab').Booking;
+const db = require("../model/cab")
 
 module.exports.cabBookingGet = (req, res, next)=>{
     res.render('cabbooking');
@@ -12,12 +13,12 @@ module.exports.cabbookingPost = async (req, res, next)=>{
             email: email
         }
     });
-
+    console.log(req.session);
     if(booking){
         return res.render('cabbooking', {message: 'Already booked.'});
     }
-
-    await bookings.create({
+    var driver = await Driverprofile.findOne();
+    const result = await bookings.create({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         address: req.body.address,
@@ -28,13 +29,12 @@ module.exports.cabbookingPost = async (req, res, next)=>{
         email: req.body.email,
         phone: req.body.phone,
         bookingdate: req.body.bookingdate,
-        choosecab: req.body.choosecab
-        
-        
-
+        choosecab: req.body.choosecab,
+        UserId : req.session.userId,
+        DriverId : driver.dataValues.id
     });
 
-    res.redirect('/bookingindex');
+    res.redirect('/payment/'+result.id);
 }
 module.exports.cabBookingIndex = (req, res, next) => {
     bookings.findAll().then(bookingsFromDb => {
@@ -44,4 +44,19 @@ module.exports.cabBookingIndex = (req, res, next) => {
             identity: req.identity.user
         });
     })
+}
+
+
+module.exports.invoice = (req, res, next) => {
+    let id = req.params.id;
+    db.Booking.findByPk(id)
+        .then(cabbooking => {
+            console.log(cabbooking)
+            res.render('invoice', {
+                    
+                pickup: cabbooking.pickup,
+                dropoff: cabbooking.dropoff
+
+            })
+        });
 }

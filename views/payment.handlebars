@@ -1,27 +1,16 @@
-<!-- This script got from frontendfreecode.com -->
 <body style="background-color:rgba(255, 191, 0, 0.816);"></body>
 <div class="row">
     <div class="col-lg-6 mx-auto">
         <div class="card">
             <div class="card-header">
                 <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
-                    <!-- Credit card form tabs -->
                     <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
                         <li class="nav-item">
                             <a data-toggle="pill" href="#credit-card" class="nav-link active"> <i class="fas fa-credit-card mr-2"></i> Credit Card </a>
                         </li>
-                        {{!-- <li class="nav-item">
-                            <a data-toggle="pill" href="#paypal" class="nav-link"> <i class="fab fa-paypal mr-2"></i> Paypal </a>
-                        </li>
-                        <li class="nav-item">
-                            <a data-toggle="pill" href="#net-banking" class="nav-link"> <i class="fas fa-mobile-alt mr-2"></i> Net Banking </a>
-                        </li> --}}
                     </ul>
                 </div>
-                <!-- End -->
-                <!-- Credit card form content -->
                 <div class="tab-content">
-                    <!-- credit card info-->
                     <div id="credit-card" class="tab-pane fade show active pt-3">
                         <form role="form">
                             <div class="form-group">
@@ -30,21 +19,13 @@
                                 </label>
                                 <input type="text" name="username" placeholder="Card Owner Name" required class="form-control" />
                             </div>
-
-
-
                          <form role="form">
                             <div class="form-group">
                                 <label for="amount">
-                                    <h6>Amount</h6>
+                                    <h6>Pay 150/- for Advance Booking</h6>
                                 </label>
                                 <input type="text" name="username" placeholder="Amount" required class="form-control" />
                             </div>
-
-
-
-
-
                             <div class="form-group">
                                 <label for="cardNumber">
                                     <h6>Card number</h6>
@@ -78,8 +59,7 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                {{!-- <button type="button" class="subscribe btn btn-primary btn-block shadow-sm">Confirm Payment</button></div> --}}
-                                 <a class="btn btn-primary" href="/bookedsucessfully" role="button">Confirm Payment</a>
+                                 <a class="btn btn-primary" href="/bookedsucessfully/{{id}}" role="button">Confirm Payment</a>
                         </form>
                     </div>
                    

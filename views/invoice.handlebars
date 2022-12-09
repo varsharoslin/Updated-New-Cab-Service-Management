@@ -1,0 +1,94 @@
+<link href="/static/invoice.css" rel="stylesheet" type="text/css" />
+
+<table class="body-wrap" id="body">
+    <tbody>
+        <tr>
+            <td></td>
+            <td class="container" width="600">
+                <div class="content">
+                    <table class="main" width="100%" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td class="content-wrap aligncenter">
+                                    <table width="100%" cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                            <tr>
+                                                <td class="content-block">
+                                                    <h2>Thankyou For Choosing Us...</h2>
+                                                    <h2>Have a nice ride</h2>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="content-block">
+                                                    <table class="invoice">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <table class="invoice-items" cellpadding="0"
+                                                                        cellspacing="0">
+                                                                        <tbody>
+
+                                                                            <tr>
+                                                                                <td>Pick Up</td>
+                                                                                <td class="alignright">{{pickup}}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Drop Off</td>
+                                                                                <td class="alignright">{{dropoff}}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Amount</td>
+                                                                                <td class="alignright">₹ 150.00</td>
+                                                                            </tr>
+                                                                            <tr class="total">
+                                                                                <td class="alignright" width="80%">
+                                                                                    Amount Paid</td>
+                                                                                <td class="alignright">₹ 150.00</td>
+                                                                            </tr>
+
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="footer">
+                        <table width="100%">
+                            <tbody>
+                                <tr>
+                                    <td><button id="download-button">Download</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+    integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+<script>
+    const button = document.getElementById('download-button');
+    function generatePDF() {
+        // Choose the element that your content will be rendered to.
+        const element = document.getElementById('body');
+        // Choose the element and save the PDF for your user.
+        html2pdf().from(element).save();
+    }
+    button.addEventListener('click', generatePDF);
+</script>

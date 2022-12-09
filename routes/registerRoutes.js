@@ -2,8 +2,6 @@ const express = require('express');
 const controller = require('../controller/cabdetailsController')
 
 const router = express.Router();
-// router.get('/registercreate', controller.create);
-// router.post('/registercreate', controller.createPost);
 
 
 router.get('/registercreate',controller.registerget);

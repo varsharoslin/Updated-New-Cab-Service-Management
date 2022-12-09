@@ -1,3 +1,5 @@
+
+<body style="background-color:rgba(255, 191, 0, 0.816);"></body>
 <div class="container">
     <h1 class="text-center">Add Cab Details</h1>
     <div class="row">
@@ -19,6 +21,37 @@
                     <label for="summary"->Cab Description</label>
                     <textarea name="cabDescription" id="summary" class="form-control"></textarea>
                 </div>
+                
+
+            <div>
+                <br>
+                 <tr>
+                <td>
+                    <label for="adddriver">Add Driver</label>
+                </td>
+                <td><select class="selectpicker" name="adddriver" data-live-search="true">
+                        <option data-tokens="ketchup mustard"value="Driver1"><b>Driver1</b></option>
+                        <option data-tokens="mustard" value="Driver2">Driver2</option>
+                        <option data-tokens="frosting" value="Driver3">Driver3
+                        </option>
+                        <option data-tokens="frosting" value="Driver4">Driver4</option>
+                        <option data-tokens="frosting"value="Driver5">Driver5</option>
+                    </select></td>
+
+                </td>
+            </tr>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
                 <div class="d-grid mt-4">
                     <button class="btn btn-primary">Save</button>
                 </div>
@@ -26,3 +59,19 @@
         </div>
     </div>
 </div>
+<style>
+    body {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+
+    }
+    .selectpicker{
+        height: 50px;
+        width: 550px;
+        
+    }
+</style>

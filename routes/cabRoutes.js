@@ -14,8 +14,4 @@ router.post('/updatecab/:id', controller.updatePost);
 router.get('/deletecab/:id', controller.delete);
 
 
-
-
-
-
 module.exports = router;

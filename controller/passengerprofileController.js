@@ -1,6 +1,4 @@
-
-const passengerProfile = require('../model/passengerprofile');
-
+const passengerProfile = require('../model/cab').Passengerprofile;
 //get all customers
 module.exports.index = (req, res, next) => {
     passengerProfile.findAll().then(passengers => {

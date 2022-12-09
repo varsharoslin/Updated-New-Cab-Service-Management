@@ -3,8 +3,6 @@ const controller = require('../controller/customerProfileController')
 
 const router = express.Router();
 
-
-
 router.get('/customercreate', controller.create);
 router.post('/customercreate', controller.createPost);
 router.get('/customerprofile', controller.index);

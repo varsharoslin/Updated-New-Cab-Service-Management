@@ -1,6 +1,4 @@
-
-const driverProfile = require('../model/driverprofile');
-
+const driverProfile = require('../model/cab').Driverprofile;
 //get all customers
 module.exports.index = (req, res, next) => {
     driverProfile.findAll().then(driver => {

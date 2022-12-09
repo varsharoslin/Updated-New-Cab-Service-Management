@@ -7,7 +7,6 @@ router.get('/profile', controller.index);
 
 router.get('/createprofile', controller.create);
 router.post('/createprofile', controller.createPost);
-// router.get('/passengerprofile', controller.index);
 router.get('/updateprofile/:id', controller.update);
 router.post('/updateprofile/:id', controller.updatePost);
 

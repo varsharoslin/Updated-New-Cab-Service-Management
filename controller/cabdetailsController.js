@@ -1,37 +1,10 @@
-const User = require('../model/user');
+const User = require('../model/cab').User;
+const cabdetails = require('../model/cab').cabdetails;
 
 module.exports.login = (req, res, next)=>{
     res.render('login');
 
-
-
-// if (userFromDb.dataValues.role == "passenger") {
-
-//     return res.redirect("/");
-
-// } else if (userFromDb.dataValues.role == "driver") {
-
-//     return res.redirect("/");
-
-// } else {
-
-//     return res.redirect("/admin/home");
-
-// }
-
-// res.redirect("/home");
-
-
 }
-
-
-
-
-
-
-
-
-
 
 module.exports.homeget  = (req, res, next)=>{
     res.render('home');
@@ -45,6 +18,9 @@ module.exports.cabbookingpost = (req, res, next)=>{
 module.exports.cabbookingget = (req, res, next)=>{
     res.render('booking');
 }
+module.exports.invoiceget = (req, res, next)=>{
+    res.render('invoice');
+}
 module.exports.registerpost = (req, res, next)=>{
 
     User.create({
@@ -54,14 +30,13 @@ module.exports.registerpost = (req, res, next)=>{
         gender: req.body.gender,
         email: req.body.email,
         address: req.body.address,
-        password: req.body.password
+        password: req.body.password,
+        DriverId : req.session.DriverId
         })
         .then(userFromDb => {
             res.redirect("/home");
         })
 }
-
-
 
 module.exports.usersGet = (req, res, next) => {
     User.findAll().then(userfromdb => {
@@ -74,9 +49,13 @@ module.exports.usersGet = (req, res, next) => {
 }
 
 
+module.exports.logout=(req,res,next)=>{
 
+    req.session = null;
 
+    res.redirect("/login");
 
+}
 
 module.exports.registerget = (req, res, next)=>{
     res.render('register');
@@ -91,10 +70,11 @@ module.exports.availablecabsget = (req, res, next)=>{
     res.render('availablecabs');
 }
 module.exports.paymentget = (req, res, next)=>{
-    res.render('payment');
+
+    res.render('payment',{id : req.params.id});
 }
 module.exports.bookedsucessfullyget = (req, res, next)=>{
-    res.render('bookedsucessfully');
+    res.render('bookedsucessfully',{id : req.params.id});
 }
 module.exports.driverget = (req, res, next)=>{
     res.render('driver');
@@ -126,11 +106,14 @@ module.exports.cabbookingget = (req, res, next)=>{
     res.render('booking');
 }
 
+
+
 module.exports.passengerprofileget = (req, res, next)=>{
     res.render('passengerprofile');
 }
 module.exports.loginPost = async (req, res, next)=>{
     const {email, password} = req.body;
+    console.log(req.body);
     const userFromDb = await User.findOne({
         where: {email: email, password: password}
     });
@@ -139,13 +122,16 @@ module.exports.loginPost = async (req, res, next)=>{
         return res.render('login', {message: 'No user with this email or password was found.'})
     }
 else if(userFromDb.role == 'admin'){
+    req.session.userId = userFromDb.id;
     res.redirect('/admin');
 }
 else if(userFromDb.role == 'passenger'){
+    req.session.userId = userFromDb.id;
     res.redirect('/customer');
 }
 else{
     req.session.userId = userFromDb.id;
+    console.log(req.session);
     res.redirect('/driver');
 }
 

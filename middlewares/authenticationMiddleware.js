@@ -1,4 +1,4 @@
-const user = require('../model/user');
+const user = require('../model/cab').User;
 
 module.exports = async (req, res, next) => {
     req.identity = {
@@ -6,9 +6,10 @@ module.exports = async (req, res, next) => {
         user: null
     }
 
-    if(req.url == "/login" || req.url == "/register"){
+    if(req.url == "/login" || req.url == "/register" || !req.session==null){
         return next();
     }
+
 
     let userId = req.session.userId;
     if(!userId || userId == null){
@@ -30,19 +31,3 @@ module.exports = async (req, res, next) => {
     }
     next();
 }
-
-
-    // req.identity.isAuthenticated = true;
-    // req.identity.user = {
-    //     id: userFromDb.dataValues.id,
-    //     firstName: userFromDb.dataValues.firstName,
-    //     lastName: userFromDb.dataValues.lastName,
-    //     email: userFromDb.dataValues.email,
-    //     admin : userFromDb.admin
-    // }
-    // if(req.url == "/admin/" && req.identity.user.admin == 1){
-    //     return next()
-    // }
-    // else{
-    // next();
-    // }
